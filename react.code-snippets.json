@@ -1,0 +1,102 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Create React Function Component [TS]": {
+		"prefix": "crfc",
+		"body": [
+			"import * as React from \"react\";",
+			"",
+			"interface I${1:$TM_FILENAME_BASE}Props {",
+			"    ",
+			"};",
+			"",
+			"const ${1:$TM_FILENAME_BASE}: React.FunctionComponent<I${1:$TM_FILENAME_BASE}Props> = ({",
+			"    ",
+			"}) => {",
+			"    return (",
+			"        <div></div>",
+			"    );",
+			"};",
+			"",
+			"export default ${1:$TM_FILENAME_BASE};"
+		],
+		"description": "Creates React Functional Component with Typescript"
+	},
+	"Create React Component Styles": {
+		"prefix": "crcs",
+		"body": [
+			"import { makeStyles } from \"@material-ui/core/styles\";",
+			"",
+			"const useStyles = makeStyles(theme => ({",
+			"  ${1}",
+			"}));",
+			"",
+			"export { useStyles };"
+		],
+		"description": "Creates Material Design Styles Template File"
+	},
+	"Create React Component Index": {
+		"prefix": "crci",
+		"body": [
+			"import ${TM_DIRECTORY/^.+\\\\(.*)$/$1/} from \"./${TM_DIRECTORY/^.+\\\\(.*)$/$1/}\";",
+			"",
+			"export default ${TM_DIRECTORY/^.+\\\\(.*)$/$1/};"
+		],
+		"description": "Create React Component Index"
+	},
+	"Create Redux Slice": {
+		"prefix": "crs",
+		"body": [
+			"import { createSlice, PayloadAction, Draft } from '@reduxjs/toolkit';",
+			"",
+			"export interface ${1:${TM_DIRECTORY/^.+\\\\(.*)$/${1:/capitalize}/}}State  {",
+			" isLoading: boolean",
+			"}",
+			"",
+			"const initialState = {",
+			" isLoading: false",
+			"};",
+			"",
+			"export const ${2:${TM_DIRECTORY/^.+\\\\(.*)$/${1}/}} = createSlice({",
+			" name: '${TM_DIRECTORY/^.+\\\\(.*)$/${1:/upcase}/}',",
+			" initialState,",
+			" reducers: {",
+			"    get${1}Action(state: Draft<${1}State>, action: PayloadAction<any>) {",
+			"       state.isLoading = true;",
+			"    },",
+			"    get${1}DoneAction(state: Draft<${1}State>, action: PayloadAction<any>) {",
+			"       state.isLoading = false;",
+			"    },",
+			"    get${1}FailedAction(state: Draft<${1}State>, action: PayloadAction<any>) {",
+			"       state.isLoading = false;",
+			"    },",
+			"",
+			" }",
+			"});",
+			"",
+			"export const { get${1}Action, get${1}DoneAction, get${1}FailedAction } = ${2}.actions;",
+			"export default ${2}.reducer;",
+		],
+		"description": "Create Redux Slice"
+	},
+	"Create Redux Slice Action": {
+		"prefix": "crsa",
+		"body": [
+			"${1}Action(state: Draft<${2:${TM_DIRECTORY/^.+\\\\(.*)$/${1:/capitalize}/}}State>, action: PayloadAction<any>) {",
+			"   state.isLoading = true;",
+			"},",
+			"${1}DoneAction(state: Draft<${2}State>, action: PayloadAction<any>) {",
+			"   state.isLoading = false;",
+			"},",
+			"${1}FailedAction(state: Draft<${2}State>, action: PayloadAction<any>) {",
+			"  state.isLoading = false;",
+			"},",
+		],
+		"description": "Create Redux Slice"
+	}
+}
