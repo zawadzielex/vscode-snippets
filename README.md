@@ -16,3 +16,7 @@ crci - Create React Component Index
 crs - Create Redux Slice
 
 crsa - Create Redux Slice Action
+
+csaga - Create Saga
+
+csagayts - Create Saga Take Latest
