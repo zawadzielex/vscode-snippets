@@ -91,5 +91,32 @@
 			"},",
 		],
 		"description": "Create Redux Slice"
-	}
+	},
+	"Create yield takeLatest Saga": {
+		"prefix": "csagayts",
+		"body": [
+      			"yield takeLatest(${1}Action, ${1}Saga)",
+		],
+		"description": "Create yield takeLatest Saga"
+	},
+  	"Create saga": {
+    		"prefix": "csaga",
+    		"body": [
+      			"function* ${1}Saga(): SagaIterator {",
+      			"  const response: SagaReturnType<typeof ${1}Api> = yield call(",
+      			"    ${1}Api",
+      			"  );",
+      			"  if (response.state === \"error\") {",
+      			"    const errorMessage: any = {",
+      			"      message: response.data.message,",
+      			"      severity: \"error\",",
+      			"    };",
+      			"    yield put(${1}FailedAction(errorMessage));",
+      			"  } else {",
+      			"    yield put(${1}DoneAction(response.data));",
+      			"  }",
+      			"}"
+		],
+		"description": "Create saga"
+  	}
 }
